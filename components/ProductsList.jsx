@@ -17,13 +17,16 @@ const ProductsList = () => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/products", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ name, price, brand }),
-      });
+      const res = await fetch(
+        "https://inventory-management-gamma.vercel.app/api/products",
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ name, price, brand }),
+        }
+      );
       if (res.ok) {
         router.push("/");
       } else {

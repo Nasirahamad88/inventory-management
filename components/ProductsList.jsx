@@ -4,7 +4,7 @@ import RemoveBtn from "./RemoveBtn";
 const getProduct = async () => {
   try {
     const res = await fetch(
-      "http://localhost:3000/api/products",
+      "https://inventory-management-gamma.vercel.app/api/products",
       // https://inventory-management-gamma.vercel.app
       {
         cache: "no-store",

@@ -19,7 +19,9 @@ const EditProductForm = () => {
 
   const fetchProduct = async () => {
     try {
-      const res = await fetch(`/api/products/${id}`);
+      const res = await fetch(
+        `https://inventory-management-gamma.vercel.app/api/products/${id}`
+      );
       if (!res.ok) {
         throw new Error("Failed to fetch product");
       }
@@ -36,13 +38,16 @@ const EditProductForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`/api/products/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, price, brand }),
-      });
+      const res = await fetch(
+        `https://inventory-management-gamma.vercel.app/api/products/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, price, brand }),
+        }
+      );
       if (!res.ok) {
         throw new Error("Failed to update product");
       }

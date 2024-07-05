@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export default function RemoveBtn({ id }) {
@@ -10,6 +11,7 @@ export default function RemoveBtn({ id }) {
     if (confirmed) {
       const res = await fetch(
         `https://inventory-management-gamma.vercel.app/api/products?id=${id}`,
+        // `http://localhost:3000/api/products?id=${id}`,
         {
           method: "DELETE",
         }
@@ -22,8 +24,8 @@ export default function RemoveBtn({ id }) {
   };
 
   return (
-    <button onClick={removeTopic} className="text-red-400">
-      <p >DELETE</p>
-    </button>
+    <Link onClick={removeTopic} className="text-red-400">
+      DELETE
+    </Link>
   );
 }

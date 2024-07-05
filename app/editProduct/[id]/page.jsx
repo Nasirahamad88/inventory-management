@@ -5,7 +5,8 @@ import React, { useState, useEffect } from "react";
 const getProductById = async (id) => {
   try {
     const res = await fetch(
-      `https://inventory-management-gamma.vercel.app/api/products/${id}`,
+        `https://inventory-management-gamma.vercel.app/api/products/${id}`,
+    //   `http://localhost:3000/api/products/${id}`,
       {
         cache: "no-store",
       }

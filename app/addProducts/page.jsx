@@ -20,6 +20,7 @@ const ProductsList = () => {
     try {
       const res = await fetch(
         "https://inventory-management-gamma.vercel.app/api/products",
+        // "http://localhost:3000/api/products",
         {
           method: "POST",
           headers: {

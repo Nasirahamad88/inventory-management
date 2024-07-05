@@ -5,7 +5,8 @@ const getProduct = async () => {
   try {
     const res = await fetch(
       "https://inventory-management-gamma.vercel.app/api/products",
-      // https://inventory-management-gamma.vercel.app
+      // "http://localhost:3000/api/products",
+      
       {
         cache: "no-store",
       }
@@ -35,10 +36,12 @@ export default async function ProductsList() {
                 <h3 className="text-lg font-bold mb-2">{p.name}</h3>
                 <p className="text-gray-700 mb-1">Price: ${p.price}</p>
                 <p className="text-gray-700">Brand: {p.brand}</p>
-                <button className="bg-red-500">
+                <div className="flex gap-2">
                   <RemoveBtn id={p._id} />
-                  <Link href={ `/editProduct/${p._id}`}>Deleted</Link>
-                </button>
+                  <Link href={`/editProduct/${p._id}`}>
+                    Delete
+                  </Link>
+                </div>
               </div>
             ))}
           </div>

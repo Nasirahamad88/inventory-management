@@ -1,7 +1,11 @@
+import Link from "next/link";
+import RemoveBtn from "./RemoveBtn";
+
 const getProduct = async () => {
   try {
     const res = await fetch(
-      "https://inventory-management-gamma.vercel.app/api/products",
+      "http://localhost:3000/api/products",
+      // https://inventory-management-gamma.vercel.app
       {
         cache: "no-store",
       }
@@ -31,6 +35,10 @@ export default async function ProductsList() {
                 <h3 className="text-lg font-bold mb-2">{p.name}</h3>
                 <p className="text-gray-700 mb-1">Price: ${p.price}</p>
                 <p className="text-gray-700">Brand: {p.brand}</p>
+                <button className="bg-red-500">
+                  <RemoveBtn id={p._id} />
+                  <Link href={ `/editProduct/${p._id}`}>Deleted</Link>
+                </button>
               </div>
             ))}
           </div>
